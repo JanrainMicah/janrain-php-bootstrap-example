@@ -21,37 +21,13 @@ if (!empty($_POST['token'])) {
     // Use a traditional set of user credentials to sign in. In this case the
     // credentials are an email and password pair.
     trigger_error("Authenticating user with traditional credentials");
+    $response = janrain_traditional_auth($_POST['email'], $_POST['password']);
+    echo json_encode(handle_auth_response($response));
 
-
-    $field_errors = array();
-    // email address validation
-    if (empty($_POST['email'])) {
-        $field_errors['email'] = "Email is required.";
-    } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $field_errors['email'] = "Must be a valid email address.";
-    }
-
-    // password validation
-    if (empty($_POST['password'])) {
-        $field_errors['password'] = "Password is required.";
-    } elseif (strlen($_POST['password']) < 5) {
-        $field_errors['password'] = "Must be at least 5 characters.";
-    }
-
-    if (!empty($field_errors)) {
-        echo json_encode(array(
-            'status' => 'error',
-            'message' => 'Invalid form submission.',
-            'data' => $field_errors
-        ));
-    } else {
-        $response = janrain_traditional_auth($_POST['email'], $_POST['password']);
-        echo json_encode(handle_auth_response($response));
-    }
 } else {
     echo json_encode(array(
         'status' => 'error',
-        'message' => "Missing required parameters: 'token' or 'email' and 'password'"
+        'message' => "Please enter your credentials."
     ));
 }
 
@@ -67,12 +43,21 @@ function handle_auth_response($response) {
             'data' => janrain_get_client_side_session_data()
         );
     } else {
-        return array(
-            'status' => 'error',
-            'message' => $response['error_description'],
-            'code' => $response['code'],
-            'data' => $response
-        );
+        if ($response['error'] == 'invalid_credentials') {
+            return array(
+                'status' => 'error',
+                'message' => $response['invalid_fields']['signInForm'][0],
+                'code' => $response['code'],
+                'data' => $response
+            );
+        } else {
+            return array(
+                'status' => 'error',
+                'message' => $response['error_description'],
+                'code' => $response['code'],
+                'data' => $response
+            );
+        }
     }
 }
 ?>

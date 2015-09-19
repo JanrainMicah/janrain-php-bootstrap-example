@@ -62,7 +62,7 @@ var JanrainBootstrap = (function($, janrain) {
                     $('.janrain-modal').modal('hide');
                 } else if (response.status == "error") {
                     var alert = $('#janrainSignInScreen .janrain-form-error:first');
-                    alert.text("Authentication error: " + response.message);
+                    alert.text(response.message);
                     alert.show();
                 }
             });
@@ -95,8 +95,7 @@ var JanrainBootstrap = (function($, janrain) {
                             console.log
                         }
                     } else {
-                        var message = "Authentication error: " + response.message;
-                        $('#janrainEngageError').text(message);
+                        $('#janrainEngageError').text(response.message);
                         $('#janrainEngageError').show();
                     }
                 }
