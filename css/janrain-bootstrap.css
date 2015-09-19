@@ -1,0 +1,19 @@
+body {
+  margin: 0 20px 0 20px;
+}
+
+.janrain-form label {
+  display: none;
+}
+
+.janrain-modal-dialog .modal-title {
+  font-weight: bold;
+}
+
+.janrain-modal-dialog {
+    width: 420px;
+}
+
+#janrainEngageEmbed {
+  padding: 0 10px 0 10px;
+}
