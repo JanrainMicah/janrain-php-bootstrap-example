@@ -5,6 +5,7 @@ This example project uses [Janrain's](http://janrain.com) Social Login widget
 and [Bootstrap](http://getbootstrap.com) to create a sign-in and registration UI
 powered by PHP and Janrain APIs on the back-end.
 
+[Screenshot](https://github.com/JanrainMicah/janrain-php-bootstrap-example/blob/master/screenshot.png)
 
 Prerequisites
 -------------
