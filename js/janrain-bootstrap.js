@@ -117,6 +117,11 @@ var JanrainBootstrap = (function($, janrain) {
         refreshSession();
     };
 
+    /*
+    Refresh Session
+
+    Request session data from server and refresh UI state.
+    */
     var refreshSession = function() {
         $.get(sessionDataUrl, function(response) {
             console.log('refreshSession', response)
@@ -142,6 +147,11 @@ var JanrainBootstrap = (function($, janrain) {
         }
     };
 
+    /*
+    Refresh Session
+
+    Tell server to end session and update UI state.
+    */
     var signOut = function() {
         $.get(signOutUrl, function(response) {
             console.log(response);
