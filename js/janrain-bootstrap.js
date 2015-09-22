@@ -25,9 +25,9 @@
     e.id = 'janrainAuthWidget';
 
     if (document.location.protocol === 'https:') {
-      e.src = 'https://rpxnow.com/js/lib/maple/engage.js';
+      e.src = 'https://rpxnow.com/js/lib/astrazeneca-dev/engage.js';
     } else {
-      e.src = 'http://widget-cdn.rpxnow.com/js/lib/maple/engage.js';
+      e.src = 'http://widget-cdn.rpxnow.com/js/lib/astrazeneca-dev/engage.js';
     }
 
     var s = document.getElementsByTagName('script')[0];

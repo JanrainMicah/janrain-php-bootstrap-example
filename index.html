@@ -27,6 +27,11 @@
       </button>
       <ul class="dropdown-menu" role="menu">
         <li>
+          <a href="#" data-toggle="modal" data-target="#janrainEditProfileScreen">
+            <i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;Edit Profile
+          </a>
+        </li>
+        <li>
           <a href="#" class="janrain-sign-out">
             <i class="glyphicon glyphicon-log-out"></i>&nbsp;&nbsp;Sign Out
           </a>
@@ -41,9 +46,9 @@
       <i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Create Account
     </button>
 
-    <!-- Registration forms -->
+    <!-- Modals -->
 
-    <!-- Modal -->
+    <!-- Sign In / Registration forms -->
     <div class="modal fade janrain-modal" id="janrainSignInScreen" tabindex="-1" role="dialog">
       <div class="modal-dialog janrain-modal-dialog">
         <div class="modal-content">
@@ -55,7 +60,6 @@
             <h4>With your existing acount from...</h4>
             <div class="alert alert-danger hide janrain-engage-error janrain-error" role="alert"></div>
             <div id="janrainEngageEmbed"></div>
-
             <hr>
             <h4>With a traditional account...</h4>
             <form role="form" class="janrain-sign-in-form">
@@ -65,7 +69,7 @@
                 <input type="email" class="form-control" name="email" placeholder="Email address">
               </div>
               <div class="form-group">
-                <label for="signInPassword">Email address</label>
+                <label for="signInPassword">Password</label>
                 <input type="password" class="form-control" name="password" placeholder="Password">
               </div>
               <div class="text-right">
@@ -87,6 +91,7 @@
       </div>
     </div>
 
+    <!-- Traditional Registration form -->
     <div class="modal fade janrain-modal" id="janrainTraditionalRegistrationScreen" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -94,12 +99,75 @@
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <h4 class="modal-title" id="myModalLabel">Almost Done!</h4>
           </div>
+          <form role="form" class="janrain-sign-in-form">
+            <div class="modal-body">
+              <div class="alert alert-danger hide janrain-form-error janrain-error" role="alert"></div>
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" name="firstName" placeholder="First name">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" name="lastName" placeholder="Last name">
+              </div>
+              <div class="form-group">
+                <label for="displayName">Display name</label>
+                <input type="text" class="form-control" name="displayName" placeholder="Display name">
+              </div>
+              <div class="form-group">
+                <label for="emailAddress">Email address</label>
+                <input type="email" class="form-control" name="email" placeholder="Email address">
+              </div>
+              <div class="form-group">
+                <label for="newPassword">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="newPasswordConfirm">Confirm password</label>
+                <input type="password" class="form-control" name="passwordConfirm" placeholder="Confirm password">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary">Create Account</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Profile form -->
+    <div class="modal fade janrain-modal" id="janrainEditProfileScreen" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+          </div>
           <div class="modal-body">
-          Hello
+            <form role="form" class="janrain-sign-in-form">
+              <div class="alert alert-danger hide janrain-form-error janrain-error" role="alert"></div>
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" name="firstName" placeholder="First name">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" name="lastName" placeholder="Last name">
+              </div>
+              <div class="form-group">
+                <label for="displayName">Display name</label>
+                <input type="text" class="form-control" name="displayName" placeholder="Display name">
+              </div>
+              <div class="form-group">
+                <label for="emailAddress">Email address</label>
+                <input type="email" class="form-control" name="email" placeholder="Email address">
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Create Account</button>
+            <button type="button" class="btn btn-primary">Save</button>
           </div>
         </div>
       </div>
